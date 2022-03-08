@@ -46,6 +46,11 @@
             this.txtRemoveHero = new System.Windows.Forms.TextBox();
             this.btnAddHero = new System.Windows.Forms.Button();
             this.btnRemoveHero = new System.Windows.Forms.Button();
+            this.btnAddNumber = new System.Windows.Forms.Button();
+            this.grpOrder = new System.Windows.Forms.GroupBox();
+            this.radAscending = new System.Windows.Forms.RadioButton();
+            this.radDescending = new System.Windows.Forms.RadioButton();
+            this.grpOrder.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstNumbers
@@ -53,43 +58,46 @@
             this.lstNumbers.FormattingEnabled = true;
             this.lstNumbers.Location = new System.Drawing.Point(12, 94);
             this.lstNumbers.Name = "lstNumbers";
-            this.lstNumbers.Size = new System.Drawing.Size(214, 251);
+            this.lstNumbers.Size = new System.Drawing.Size(157, 251);
             this.lstNumbers.TabIndex = 0;
             // 
             // lstHeroes
             // 
             this.lstHeroes.FormattingEnabled = true;
-            this.lstHeroes.Location = new System.Drawing.Point(298, 94);
+            this.lstHeroes.Location = new System.Drawing.Point(274, 94);
             this.lstHeroes.Name = "lstHeroes";
-            this.lstHeroes.Size = new System.Drawing.Size(214, 251);
+            this.lstHeroes.Size = new System.Drawing.Size(238, 251);
             this.lstHeroes.TabIndex = 1;
             // 
             // btnNewNumbers
             // 
-            this.btnNewNumbers.Location = new System.Drawing.Point(13, 65);
+            this.btnNewNumbers.Location = new System.Drawing.Point(12, 65);
             this.btnNewNumbers.Name = "btnNewNumbers";
             this.btnNewNumbers.Size = new System.Drawing.Size(75, 23);
             this.btnNewNumbers.TabIndex = 2;
             this.btnNewNumbers.Text = "New List";
             this.btnNewNumbers.UseVisualStyleBackColor = true;
+            this.btnNewNumbers.Click += new System.EventHandler(this.btnNewNumbers_Click);
             // 
             // btnSortNumbers
             // 
-            this.btnSortNumbers.Location = new System.Drawing.Point(151, 65);
+            this.btnSortNumbers.Location = new System.Drawing.Point(174, 65);
             this.btnSortNumbers.Name = "btnSortNumbers";
             this.btnSortNumbers.Size = new System.Drawing.Size(75, 23);
             this.btnSortNumbers.TabIndex = 3;
             this.btnSortNumbers.Text = "Sort";
             this.btnSortNumbers.UseVisualStyleBackColor = true;
+            this.btnSortNumbers.Click += new System.EventHandler(this.btnSortNumbers_Click);
             // 
             // btnNewHeroes
             // 
-            this.btnNewHeroes.Location = new System.Drawing.Point(298, 65);
+            this.btnNewHeroes.Location = new System.Drawing.Point(274, 65);
             this.btnNewHeroes.Name = "btnNewHeroes";
             this.btnNewHeroes.Size = new System.Drawing.Size(75, 23);
             this.btnNewHeroes.TabIndex = 4;
             this.btnNewHeroes.Text = "New List";
             this.btnNewHeroes.UseVisualStyleBackColor = true;
+            this.btnNewHeroes.Click += new System.EventHandler(this.btnNewHeroes_Click);
             // 
             // btnSortHeroes
             // 
@@ -99,22 +107,25 @@
             this.btnSortHeroes.TabIndex = 5;
             this.btnSortHeroes.Text = "Sort";
             this.btnSortHeroes.UseVisualStyleBackColor = true;
+            this.btnSortHeroes.Click += new System.EventHandler(this.btnSortHeroes_Click);
             // 
             // lblNumbers
             // 
             this.lblNumbers.AutoSize = true;
-            this.lblNumbers.Location = new System.Drawing.Point(91, 29);
+            this.lblNumbers.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumbers.Location = new System.Drawing.Point(44, 30);
             this.lblNumbers.Name = "lblNumbers";
-            this.lblNumbers.Size = new System.Drawing.Size(53, 13);
+            this.lblNumbers.Size = new System.Drawing.Size(77, 21);
             this.lblNumbers.TabIndex = 6;
             this.lblNumbers.Text = "Numbers";
             // 
             // lblHeroes
             // 
             this.lblHeroes.AutoSize = true;
-            this.lblHeroes.Location = new System.Drawing.Point(393, 28);
+            this.lblHeroes.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeroes.Location = new System.Drawing.Point(362, 30);
             this.lblHeroes.Name = "lblHeroes";
-            this.lblHeroes.Size = new System.Drawing.Size(43, 13);
+            this.lblHeroes.Size = new System.Drawing.Size(63, 21);
             this.lblHeroes.TabIndex = 7;
             this.lblHeroes.Text = "Heroes";
             // 
@@ -129,26 +140,28 @@
             // 
             // btnRemoveNumber
             // 
-            this.btnRemoveNumber.Location = new System.Drawing.Point(13, 377);
+            this.btnRemoveNumber.Location = new System.Drawing.Point(12, 374);
             this.btnRemoveNumber.Name = "btnRemoveNumber";
             this.btnRemoveNumber.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveNumber.TabIndex = 9;
             this.btnRemoveNumber.Text = "Remove";
             this.btnRemoveNumber.UseVisualStyleBackColor = true;
+            this.btnRemoveNumber.Click += new System.EventHandler(this.btnRemoveNumber_Click);
             // 
             // btnRemoveAllNumbers
             // 
-            this.btnRemoveAllNumbers.Location = new System.Drawing.Point(151, 377);
+            this.btnRemoveAllNumbers.Location = new System.Drawing.Point(93, 374);
             this.btnRemoveAllNumbers.Name = "btnRemoveAllNumbers";
             this.btnRemoveAllNumbers.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveAllNumbers.TabIndex = 10;
             this.btnRemoveAllNumbers.Text = "Remove All";
             this.btnRemoveAllNumbers.UseVisualStyleBackColor = true;
+            this.btnRemoveAllNumbers.Click += new System.EventHandler(this.btnRemoveAllNumbers_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 358);
+            this.label1.Location = new System.Drawing.Point(10, 358);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 13);
             this.label1.TabIndex = 11;
@@ -192,8 +205,9 @@
             this.btnAddHero.Name = "btnAddHero";
             this.btnAddHero.Size = new System.Drawing.Size(75, 23);
             this.btnAddHero.TabIndex = 16;
-            this.btnAddHero.Text = "button3";
+            this.btnAddHero.Text = "Add";
             this.btnAddHero.UseVisualStyleBackColor = true;
+            this.btnAddHero.Click += new System.EventHandler(this.btnAddHero_Click);
             // 
             // btnRemoveHero
             // 
@@ -201,8 +215,54 @@
             this.btnRemoveHero.Name = "btnRemoveHero";
             this.btnRemoveHero.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveHero.TabIndex = 17;
-            this.btnRemoveHero.Text = "button4";
+            this.btnRemoveHero.Text = "Remove";
             this.btnRemoveHero.UseVisualStyleBackColor = true;
+            this.btnRemoveHero.Click += new System.EventHandler(this.btnRemoveHero_Click);
+            // 
+            // btnAddNumber
+            // 
+            this.btnAddNumber.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNumber.Location = new System.Drawing.Point(93, 66);
+            this.btnAddNumber.Name = "btnAddNumber";
+            this.btnAddNumber.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNumber.TabIndex = 18;
+            this.btnAddNumber.Text = "Another One!";
+            this.btnAddNumber.UseVisualStyleBackColor = true;
+            this.btnAddNumber.Click += new System.EventHandler(this.btnAddNumber_Click);
+            // 
+            // grpOrder
+            // 
+            this.grpOrder.Controls.Add(this.radDescending);
+            this.grpOrder.Controls.Add(this.radAscending);
+            this.grpOrder.Location = new System.Drawing.Point(174, 94);
+            this.grpOrder.Name = "grpOrder";
+            this.grpOrder.Size = new System.Drawing.Size(94, 72);
+            this.grpOrder.TabIndex = 19;
+            this.grpOrder.TabStop = false;
+            this.grpOrder.Text = "Sort Order";
+            // 
+            // radAscending
+            // 
+            this.radAscending.AutoSize = true;
+            this.radAscending.Checked = true;
+            this.radAscending.Location = new System.Drawing.Point(2, 22);
+            this.radAscending.Name = "radAscending";
+            this.radAscending.Size = new System.Drawing.Size(79, 17);
+            this.radAscending.TabIndex = 0;
+            this.radAscending.TabStop = true;
+            this.radAscending.Text = "Ascending";
+            this.radAscending.UseVisualStyleBackColor = true;
+            // 
+            // radDescending
+            // 
+            this.radDescending.AutoSize = true;
+            this.radDescending.Location = new System.Drawing.Point(2, 45);
+            this.radDescending.Name = "radDescending";
+            this.radDescending.Size = new System.Drawing.Size(86, 17);
+            this.radDescending.TabIndex = 1;
+            this.radDescending.TabStop = true;
+            this.radDescending.Text = "Descending";
+            this.radDescending.UseVisualStyleBackColor = true;
             // 
             // ListBoxes
             // 
@@ -210,6 +270,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(524, 450);
+            this.Controls.Add(this.grpOrder);
+            this.Controls.Add(this.btnAddNumber);
             this.Controls.Add(this.btnRemoveHero);
             this.Controls.Add(this.btnAddHero);
             this.Controls.Add(this.txtRemoveHero);
@@ -232,6 +294,8 @@
             this.Name = "ListBoxes";
             this.Text = "Using Lists";
             this.Load += new System.EventHandler(this.ListBoxes_Load);
+            this.grpOrder.ResumeLayout(false);
+            this.grpOrder.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,6 +321,10 @@
         private System.Windows.Forms.TextBox txtRemoveHero;
         private System.Windows.Forms.Button btnAddHero;
         private System.Windows.Forms.Button btnRemoveHero;
+        private System.Windows.Forms.Button btnAddNumber;
+        private System.Windows.Forms.GroupBox grpOrder;
+        private System.Windows.Forms.RadioButton radDescending;
+        private System.Windows.Forms.RadioButton radAscending;
     }
 }
 

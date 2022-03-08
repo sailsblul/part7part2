@@ -30,5 +30,98 @@ namespace part7part2
             lstNumbers.DataSource = numbers;
             lstHeroes.DataSource = heroes;
         }
+
+        private void btnSortNumbers_Click(object sender, EventArgs e)
+        {
+            numbers.Sort();
+            if (radDescending.Checked)
+                numbers.Reverse();
+            lstNumbers.DataSource = null;
+            lstNumbers.DataSource = numbers;
+            lblStatus.Text = "Status: numbers sorted";
+        }
+
+        private void btnSortHeroes_Click(object sender, EventArgs e)
+        {
+            heroes.Sort();
+            lstHeroes.DataSource = null;
+            lstHeroes.DataSource = heroes;
+            lblStatus.Text = "Status: heroes sorted";
+        }
+
+        private void btnNewNumbers_Click(object sender, EventArgs e)
+        {
+            numbers.Clear();
+            for (int i = 0; i < 30; i += 1)
+                numbers.Add(gen.Next(100));
+            lstNumbers.DataSource = null;
+            lstNumbers.DataSource = numbers;
+            lblStatus.Text = "Status: new numbers list";
+        }
+
+        private void btnNewHeroes_Click(object sender, EventArgs e)
+        {
+            heroes.Clear();
+            heroes.Add("Superman");
+            heroes.Add("Batman");
+            lstHeroes.DataSource = null;
+            lstHeroes.DataSource = heroes;
+            lblStatus.Text = "Status: new heroes list";
+        }
+
+        private void btnRemoveNumber_Click(object sender, EventArgs e)
+        {
+            if (lstNumbers.SelectedIndex >= 0)
+            {
+                numbers.RemoveAt(lstNumbers.SelectedIndex);
+                lstNumbers.DataSource = null;
+                lstNumbers.DataSource = numbers;
+                lblStatus.Text = "Status: number removed";
+            }
+        }
+
+        private void btnRemoveAllNumbers_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            while (numbers.Remove((Int32)lstNumbers.SelectedItem))
+                count += 1;
+            lstNumbers.DataSource = null;
+            lstNumbers.DataSource = numbers;
+            lblStatus.Text = $"Status: {count} numbers removed";
+        }
+
+        private void btnRemoveHero_Click(object sender, EventArgs e)
+        {
+            if (heroes.Remove(txtRemoveHero.Text.Trim())) {
+                lstHeroes.DataSource = null;
+                lstHeroes.DataSource = heroes;
+                lblStatus.Text = "Status: hero removed succesfully";
+            }
+            else
+            {
+                lblStatus.Text = "Status: specified hero is not present";
+            }
+
+        }
+
+        private void btnAddHero_Click(object sender, EventArgs e)
+        {
+            if (txtAddHero.Text.Trim() != "")
+            {
+                heroes.Add(txtAddHero.Text.Trim());
+                lstHeroes.DataSource = null;
+                lstHeroes.DataSource = heroes;
+                lblStatus.Text = "Status: hero added";
+                txtAddHero.Clear();
+            }
+        }
+
+        private void btnAddNumber_Click(object sender, EventArgs e)
+        {
+            numbers.Add(gen.Next(100));
+            lstNumbers.DataSource = null;
+            lstNumbers.DataSource = numbers;
+            lblStatus.Text = "Status: number added";
+        }
     }
 }
