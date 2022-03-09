@@ -92,7 +92,17 @@ namespace part7part2
 
         private void btnRemoveHero_Click(object sender, EventArgs e)
         {
-            if (heroes.Remove(txtRemoveHero.Text.Trim())) {
+            bool found = false;
+            foreach (string hero in heroes)
+            {
+                if (txtRemoveHero.Text.Trim().ToLower() == hero.ToLower())
+                {
+                    heroes.Remove(hero);
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
                 lstHeroes.DataSource = null;
                 lstHeroes.DataSource = heroes;
                 lblStatus.Text = "Status: hero removed succesfully";
@@ -106,14 +116,29 @@ namespace part7part2
 
         private void btnAddHero_Click(object sender, EventArgs e)
         {
-            if (txtAddHero.Text.Trim() != "")
+            bool found = false;
+            foreach (string hero in heroes)
             {
-                heroes.Add(txtAddHero.Text.Trim());
-                lstHeroes.DataSource = null;
-                lstHeroes.DataSource = heroes;
-                lblStatus.Text = "Status: hero added";
-                txtAddHero.Clear();
+                if (txtAddHero.Text.Trim().ToLower() == hero.ToLower())
+                {
+                    found = true;
+                    break;
+                }
             }
+            if (found)
+            {
+                lblStatus.Text = "Status: hero is already present";
+            }
+            else {
+                if (txtAddHero.Text.Trim() != "")
+                {
+                    heroes.Add(txtAddHero.Text.Trim());
+                    lstHeroes.DataSource = null;
+                    lstHeroes.DataSource = heroes;
+                    lblStatus.Text = "Status: hero added";
+                }
+            }
+            txtAddHero.Clear();
         }
 
         private void btnAddNumber_Click(object sender, EventArgs e)
